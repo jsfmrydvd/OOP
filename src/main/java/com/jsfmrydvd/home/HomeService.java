@@ -14,8 +14,8 @@ public class HomeService {
     private static List<Todo> todos = new ArrayList<Todo>();
 
     static {
-        todos.add(new Todo("Sample Todo List"));
-        todos.add(new Todo("Add more functions"));
+        todos.add(new Todo("ADMIN: Welcome to the Chat App"));
+        todos.add(new Todo("ADMIN: Please type something.."));
     }
     public List<Todo> retrieveTodos() {
         return todos;

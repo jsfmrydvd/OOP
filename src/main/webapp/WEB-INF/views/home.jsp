@@ -17,12 +17,12 @@
     <section class="todo-wrapper">
         <h1 class="todo-title">Welcome, ${name}!</h1>
         <form action="/home" method="post">
-            <input type="text" class="input-todo" placeholder="Add something here.." name="todo">
+            <input type="text" class="input-todo" placeholder="Add something here.." name="todo" autofocus>
             <button class="btn btn-dark" type="submit">ADD
             </button>
         </form>
         <div>
-            <p class="status busy">To do List (Every user can see the same list)</p>
+            <p class="status busy">Chat List (Every user can see the list)</p>
             <ul class="todo-list">
                 <c:forEach items="${todos}" var="todo">
                     <li>
