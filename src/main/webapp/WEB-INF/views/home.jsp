@@ -22,7 +22,7 @@
             </button>
         </form>
         <div>
-            <p class="status busy">To do List<span >s</span></p>
+            <p class="status busy">To do List (Every user can see the same list)</p>
             <ul class="todo-list">
                 <c:forEach items="${todos}" var="todo">
                     <li>
