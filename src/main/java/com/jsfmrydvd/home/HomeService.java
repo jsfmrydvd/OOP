@@ -17,9 +17,9 @@ public class HomeService {
         String color = "<html><font color=red>Admin</font></html>";
         SimpleDateFormat formatter = new SimpleDateFormat("hh:mm a");
         Date date = new Date();
-        String dateColor = "<html><font color=black><b>(" + formatter.format(date) + ")</b></font></html>";
+        String dateColor = "<html><font color=gray size=2>" + formatter.format(date) + "</font></html>";
         todos.add(new Todo(color + ": " +"Welcome to the Chat App" + " " + dateColor));
-        todos.add(new Todo(color + ": " +"Please type something.." + " " + dateColor));
+        todos.add(new Todo(color + ": " +"Please type something here" + " " + dateColor));
     }
     public List<Todo> retrieveTodos() {
         return todos;

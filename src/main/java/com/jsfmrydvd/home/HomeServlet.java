@@ -28,11 +28,11 @@ public class HomeServlet extends HttpServlet {
 
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
-        String name = (String) request.getSession().getAttribute("name");
-        String color = "<html><font color=red>" + name + "</font></html>";
+        String names = (String) request.getSession().getAttribute("name");
+        String color = "<html><font color=red>" + names + "</font></html>";
         SimpleDateFormat formatter = new SimpleDateFormat("hh:mm a");
         Date date = new Date();
-        String dateColor = "<html><font color=black><b>(" + formatter.format(date) + ")</b></font></html>";
+        String dateColor = "<html><font color=gray size=2>" + formatter.format(date) + "</font></html>";
         String todoList = request.getParameter("todo");
 
         homeService.add(new Todo(color +": " + todoList + " " + dateColor));

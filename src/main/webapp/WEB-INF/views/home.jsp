@@ -20,6 +20,7 @@
             <input type="text" class="input-todo" placeholder="Add something here.." name="todo" autofocus>
             <button class="btn btn-dark" type="submit">ADD
             </button>
+
         </form>
         <div>
             <p class="status busy">Chat List (Every user can see the list)</p>
