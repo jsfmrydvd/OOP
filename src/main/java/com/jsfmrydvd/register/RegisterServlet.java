@@ -1,0 +1,38 @@
+package com.jsfmrydvd.register;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
+/**
+ * Created by Josef David on 2:17 PM, 10/11/2018
+ **/
+@WebServlet(urlPatterns = "/register")
+public class RegisterServlet extends HttpServlet {
+    RegisterService reg = new RegisterService();
+    UserService userService = new UserService();
+
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.getRequestDispatcher("/WEB-INF/views/register.jsp").forward(request,response);
+    }
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String userName = request.getParameter("name");
+        String password = request.getParameter("password");
+        userService.addUser(userName, password);
+        response.sendRedirect("/login");
+    }
+//    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//        String userName = request.getParameter("name");
+//        String password = request.getParameter("password");
+//        if(user.isUserValid(userName, password)) {
+//            request.getSession().setAttribute("name", userName);
+//            response.sendRedirect("/home");
+//        } else {
+//            request.setAttribute("errorMessage", "Invalid Username and Password");
+//            request.getRequestDispatcher("/WEB-INF/views/index.jsp").forward(request,response);
+//        }
+//    }
+}
