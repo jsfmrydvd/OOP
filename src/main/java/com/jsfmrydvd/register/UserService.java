@@ -58,16 +58,6 @@ public class UserService {
         }
         return isValid;
     }
-//    public void getUser(String user, String password) {
-//        for (Map.Entry<String, String> entry : map.entrySet()) {
-//            if(user.equals(entry.getKey()) && password.equals(entry.getValue())) {
-//                map.entrySet()
-//                break;
-//            } else {
-//                isValid = false;
-//            }
-//        }
-//    }
 
 //    ADD USER
     public Map<String, String> addUser(String name, String password) {

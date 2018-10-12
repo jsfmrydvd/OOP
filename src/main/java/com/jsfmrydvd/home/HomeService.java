@@ -1,9 +1,7 @@
 package com.jsfmrydvd.home;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 /**
  * Created by Josef David on 10:07 AM, 10/12/2018
@@ -13,9 +11,15 @@ public class HomeService {
 
     private static List<Todo> todos = new ArrayList<Todo>();
 
+
+
     static {
-        todos.add(new Todo("ADMIN: Welcome to the Chat App"));
-        todos.add(new Todo("ADMIN: Please type something.."));
+        String color = "<html><font color=red>Admin</font></html>";
+        SimpleDateFormat formatter = new SimpleDateFormat("hh:mm a");
+        Date date = new Date();
+        String dateColor = "<html><font color=black><b>(" + formatter.format(date) + ")</b></font></html>";
+        todos.add(new Todo(color + ": " +"Welcome to the Chat App" + " " + dateColor));
+        todos.add(new Todo(color + ": " +"Please type something.." + " " + dateColor));
     }
     public List<Todo> retrieveTodos() {
         return todos;

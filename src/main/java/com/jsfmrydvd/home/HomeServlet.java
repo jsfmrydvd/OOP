@@ -29,12 +29,13 @@ public class HomeServlet extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
         String name = (String) request.getSession().getAttribute("name");
-        PrintWriter out = new PrintWriter(name);
-        out.print("<html><font color=\\\"red\\\">" + name +"</font></html>");
-        String todoList = request.getParameter("todo");
+        String color = "<html><font color=red>" + name + "</font></html>";
         SimpleDateFormat formatter = new SimpleDateFormat("hh:mm a");
         Date date = new Date();
-        homeService.add(new Todo(name +": " + todoList + " " + "("+ formatter.format(date) +")"));
+        String dateColor = "<html><font color=black><b>(" + formatter.format(date) + ")</b></font></html>";
+        String todoList = request.getParameter("todo");
+
+        homeService.add(new Todo(color +": " + todoList + " " + dateColor));
         response.sendRedirect("/home");
     }
 }
