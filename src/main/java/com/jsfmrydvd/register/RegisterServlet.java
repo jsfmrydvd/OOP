@@ -24,15 +24,4 @@ public class RegisterServlet extends HttpServlet {
         userService.addUser(userName, password);
         response.sendRedirect("/login");
     }
-//    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        String userName = request.getParameter("name");
-//        String password = request.getParameter("password");
-//        if(user.isUserValid(userName, password)) {
-//            request.getSession().setAttribute("name", userName);
-//            response.sendRedirect("/home");
-//        } else {
-//            request.setAttribute("errorMessage", "Invalid Username and Password");
-//            request.getRequestDispatcher("/WEB-INF/views/index.jsp").forward(request,response);
-//        }
-//    }
 }

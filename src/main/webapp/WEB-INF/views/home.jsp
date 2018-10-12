@@ -6,22 +6,35 @@
 <html>
 <head>
     <title>HOME</title>
+    <style><%@include file="/WEB-INF/css/styles.css"%></style>
     <link href="webjars/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet"/>
 </head>
 <body>
-Welcome, ${name}!
-<ul>
-    <c:forEach items="${todos}" var="todo">
-        <li>${todo.name} &nbsp; <a href="/todo-delete?todo=${todo.name}">DELETE</a></li>
-    </c:forEach>
-</ul>
-<form action="/home" method="post">
-    <input type="text" name="todo"/>
-    <input class="btn btn-danger" type="submit" value="add">
-</form>
-<form action="/logout" method="post">
+<form action="/logout" method="post" style="text-align: center">
     <input class="btn btn-danger" type="submit" value="Logout">
 </form>
+<div id="app">
+    <section class="todo-wrapper">
+        <h1 class="todo-title">Welcome, ${name}!</h1>
+        <form action="/home" method="post">
+            <input type="text" class="input-todo" placeholder="Add something here.." name="todo">
+            <button class="btn btn-dark" type="submit">ADD
+            </button>
+        </form>
+        <div>
+            <p class="status busy">To do List<span >s</span></p>
+            <ul class="todo-list">
+                <c:forEach items="${todos}" var="todo">
+                    <li>
+                        <label></label>
+                        <span class="todo-text">${todo.name}</span>
+                        <a href="/todo-delete?todo=${todo.name}"><span class="delete"></span></a>
+                    </li>
+                </c:forEach>
+            </ul>
+        </div>
+    </section>
+</div>
 <script src="webjars/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 <script src="webjars/jquery/3.3.1/jquery.min.js"></script>
 <script src="webjars/popper.js/1.14.3/popper.min.js"></script>
