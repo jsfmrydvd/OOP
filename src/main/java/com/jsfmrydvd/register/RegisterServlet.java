@@ -19,9 +19,16 @@ public class RegisterServlet extends HttpServlet {
         request.getRequestDispatcher("/WEB-INF/views/register.jsp").forward(request,response);
     }
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
         String userName = request.getParameter("name");
         String password = request.getParameter("password");
-        userService.addUser(userName, password);
-        response.sendRedirect("/login");
+        if(!userService.isUserTaken(userName,password)) {
+            userService.addUser(userName, password);
+            response.sendRedirect("/login");
+        } else {
+            request.setAttribute("errorMessage", "Username is already taken!");
+            request.getRequestDispatcher("/WEB-INF/views/register.jsp").forward(request,response);
+        }
+
     }
 }

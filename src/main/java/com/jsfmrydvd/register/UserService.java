@@ -1,6 +1,6 @@
 package com.jsfmrydvd.register;
 
-import javax.persistence.GeneratedValue;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -30,18 +30,49 @@ public class UserService {
         this.password = password;
     }
 
-    static Map<String, Object> map = new HashMap<String, Object>();
-
+    static Map<String, String> map = new HashMap<String, String>();
+    static List<UserService> userService = new ArrayList<UserService>();
     //check if user is valid
-    public static boolean isUserValid(String user, String password) {
-        if(user.equals(map.get("name")) && password.equals(map.get("password"))) return true;
-        return false;
-    }
 
-    //ADD USER
-    public Map<String, Object> addUser(String name, String password) {
-        map.put("name", name);
-        map.put("password", password);
+    public static boolean isUserValid(String user, String password) {
+        boolean isValid = false;
+        for (Map.Entry<String, String> entry : map.entrySet()) {
+            if(user.equals(entry.getKey()) && password.equals(entry.getValue())) {
+               isValid = true;
+               break;
+            } else {
+                isValid = false;
+            }
+        }
+        return isValid;
+    }
+    public boolean isUserTaken(String user, String password) {
+        boolean isValid = false;
+        for (Map.Entry<String, String> entry : map.entrySet()) {
+            if(user.equals(entry.getKey())) {
+                isValid = true;
+                break;
+            } else {
+                isValid = false;
+            }
+        }
+        return isValid;
+    }
+//    public void getUser(String user, String password) {
+//        for (Map.Entry<String, String> entry : map.entrySet()) {
+//            if(user.equals(entry.getKey()) && password.equals(entry.getValue())) {
+//                map.entrySet()
+//                break;
+//            } else {
+//                isValid = false;
+//            }
+//        }
+//    }
+
+//    ADD USER
+    public Map<String, String> addUser(String name, String password) {
+        map.put(name, password);
        return map;
     }
+
 }
