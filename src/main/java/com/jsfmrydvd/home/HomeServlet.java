@@ -29,6 +29,7 @@ public class HomeServlet extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
         String names = (String) request.getSession().getAttribute("name");
+        names = names.substring(0,1).toUpperCase() + names.substring(1).toLowerCase();
         String color = "<html><font color=red>" + names + "</font></html>";
         SimpleDateFormat formatter = new SimpleDateFormat("hh:mm a");
         Date date = new Date();

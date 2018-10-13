@@ -20,7 +20,7 @@ public class RegisterServlet extends HttpServlet {
     }
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String userName = request.getParameter("name");
+        String userName = request.getParameter("name").toLowerCase();
         String password = request.getParameter("password");
         if(!userService.isUserTaken(userName,password)) {
             userService.addUser(userName, password);

@@ -18,10 +18,11 @@ public class LoginServlet extends HttpServlet {
         request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(request,response);
     }
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String userName = request.getParameter("name");
+        String userName = request.getParameter("name").toLowerCase();
+        String finalUserName = userName.substring(0,1).toUpperCase() + userName.substring(1).toLowerCase();
         String password = request.getParameter("password");
         if(UserService.isUserValid(userName, password)) {
-            request.getSession().setAttribute("name", userName);
+            request.getSession().setAttribute("name", finalUserName);
             response.sendRedirect("/home");
         } else {
             request.setAttribute("errorMessage", "Invalid Username and Password");

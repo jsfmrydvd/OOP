@@ -17,7 +17,8 @@ public class TodoDelete extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
         String names = (String) request.getSession().getAttribute("name");
-        if(request.getParameter("todo").contains(names)) {
+        names = names.substring(0,1).toUpperCase() + names.substring(1).toLowerCase();
+        if(request.getParameter("todo").contains(">" +names +"<")) {
             homeService.delete(new Todo(request.getParameter("todo")));
             response.sendRedirect("/home");
         } else {
