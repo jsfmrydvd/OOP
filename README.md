@@ -1,2 +1,2 @@
 # OOP
-Run by using maven > tomcat7:run
+Run by using   mvn tomcat7:run
