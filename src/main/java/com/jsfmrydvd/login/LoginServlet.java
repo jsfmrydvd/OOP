@@ -24,7 +24,12 @@ public class LoginServlet extends HttpServlet {
         if(UserService.isUserValid(userName, password)) {
             request.getSession().setAttribute("name", finalUserName);
             response.sendRedirect("/home");
+        } else if(UserService.isMatch(userName,password)) {
+            request.setAttribute("notMatch", "Username and Password not match");
+            request.removeAttribute("errorMessage");
+            request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(request,response);
         } else {
+            request.removeAttribute("notMatch");
             request.setAttribute("errorMessage", "Invalid Username and Password");
             request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(request,response);
         }

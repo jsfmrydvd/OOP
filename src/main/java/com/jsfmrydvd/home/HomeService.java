@@ -11,8 +11,6 @@ public class HomeService {
 
     private static List<Todo> todos = new ArrayList<Todo>();
 
-
-
     static {
         String color = "<html><font color=red>Admin</font></html>";
         SimpleDateFormat formatter = new SimpleDateFormat("hh:mm a");

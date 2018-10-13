@@ -63,6 +63,19 @@ public class UserService {
         }
         return isValid;
     }
+    public static boolean isMatch(String user, String password) {
+        boolean isValid = false;
+        if(user.equals("admin")) isValid = true;
+        for (Map.Entry<String, String> entry : map.entrySet()) {
+            if(user.equals(entry.getKey())) {
+                isValid = true;
+                break;
+            } else {
+                isValid = false;
+            }
+        }
+        return isValid;
+    }
 
 //    ADD USER
     public Map<String, String> addUser(String name, String password) {

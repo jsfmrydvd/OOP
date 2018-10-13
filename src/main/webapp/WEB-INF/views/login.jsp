@@ -23,7 +23,7 @@
             <label for="login__password"><svg class="icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#lock"></use></svg><span class="hidden">Password</span></label>
             <input id="login__password" type="password" name="password" class="form__input" placeholder="Password" required="" autocomplete="false">
         </div>
-        <p style="text-align: center; color: red; font: bold;">${errorMessage}</p>
+        <p style="text-align: center; color: red; font: bold;">${errorMessage}${notMatch}</p>
         <div class="form__field">
             <input type="submit" value="Sign In">
         </div>
