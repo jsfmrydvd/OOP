@@ -34,7 +34,9 @@
                 </c:forEach>
             </ul>
         </div>
+
     </section>
+    <p style="text-align: center; color: red; font: bold;">${errorMessage}</p>
 </div>
 <script src="webjars/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 <script src="webjars/jquery/3.3.1/jquery.min.js"></script>

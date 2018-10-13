@@ -49,7 +49,7 @@ public class UserService {
     public boolean isUserTaken(String user, String password) {
         boolean isValid = false;
         for (Map.Entry<String, String> entry : map.entrySet()) {
-            if(user.equals(entry.getKey())) {
+            if(user.equals(entry.getKey()) || user.equals("Admin") || user.equals("admin")) {
                 isValid = true;
                 break;
             } else {
